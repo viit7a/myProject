@@ -26,8 +26,8 @@
             height: 300px;
             justify-content: center;
         }
-        h2 { color: #ff4d6d; margin:0 0 15px; }
-        p { color: #4a4a4a; font-size: 18px; line-height: 1.5;margin: 0 0 15px; }
+        h2 { color: #ff4d97; margin:0 0 15px; }
+        p { color: #0785c0; font-size: 18px; line-height: 1.5;margin: 0 0 15px; }
 
         .btn{
             display: flex;
@@ -38,7 +38,7 @@
         }
         button {
             background-color: #5e8797;
-            color: white;
+            color: rgb(231, 197, 0);
             border: none;
             padding: 12px 20px;
             font-size: 16px;
@@ -84,7 +84,9 @@
     const titleElement = document.getElementById('title');
     const textElement = document.getElementById('text');   
     const btnContainer = document.getElementById('buttons');
-    let currentThought =""
+    let cardElement = document.querySelector('.card')
+    let currentThought = ""
+    let currentBg = ""
   
  
     
@@ -94,6 +96,7 @@
     titleElement.innerText = "Рад, знакомству Карина"; 
     textElement.innerHTML = "Вижу, теперь улыбаешься😁";
     currentThought = "Если есть человек который движет тобой, то это не про тонкий лёд, а кристалл твердой породы"
+    currentBg = "#e3f2fd"
     textElement.classList.add('fade-in') 
     showThoughtButton()
 }
@@ -105,39 +108,44 @@
     currentThought = "Совместимость не определяется статистикой и цифрами,а определяется временем"
     textElement.classList.add('fade-in')
     showThoughtButton()
+    currentBg = "#ff18"
 
 }
     function sayHellotoCheater() {
 
     titleElement.innerText = "Надо на проверку👽"; 
     textElement.innerHTML = "Мага, не квакай!!!🤢"; 
-    currentThought = "Иногда мы четерим чтобы казаться  хорошими, но ценность заложена в самом человеке"
+    currentThought = "Иногда мы читерим, для того чтобы казаться хорошими, но ценность заложена в самом человеке"
     textElement.classList.add('fade-in') 
     showThoughtButton()
+    currentBg = "#3445"
 }
 
-function showBackButton() { //back
+    function showBackButton() { //back
     btnContainer.innerHTML = `<button onclick="resetCard()">Назад ↩️</button>`;
 }
-function showThought(){
+    function showThought(){
     textElement.classList.remove('fade-in');
-        void textElement.offsetWidth;
+    void textElement.offsetWidth;
+    cardElement.style.background = currentBg
     titleElement.innerText = "О главном.."
-   textElement.innerText = currentThought
-  textElement.classList.add('fade-in')  
-    btnContainer.innerHTML = `<button onclick="resetCard()">Назад ↩️</button>`
+    textElement.innerText = currentThought
+    textElement.classList.add('fade-in')  
+    btnContainer.innerHTML = `<button onclick="resetCard()">Назад ↩</button>`
 
 }
 
-   function showThoughtButton() {
+    function showThoughtButton() {
         btnContainer.innerHTML = `<button onclick="showThought()">Мысль дня 💎</button>`;
     }
-   function resetCard() { //returnisback
-    textElement.classList.remove('fade-in')
+    function resetCard() { //returnisback
+    cardElement.style.background = "rgb(228, 214, 214)";   
+    void textElement.offsetWidth 
+    textElement.classList.add('fade-in')
 
-        titleElement.innerText = "Шо Ета?";
-        textElement.innerText = "Привет, Как тебя зовут?";
-        btnContainer.innerHTML = `
+    titleElement.innerText = "Мы вернулись чтобы делать вместе";
+    textElement.innerText = "Найди себя😄";
+    btnContainer.innerHTML = `
             <button onclick="sayHellotoKarina()">Karina 😂</button>
             <button onclick="sayHellotoMalvina()">Mal'vina 🐷</button>
             <button onclick="sayHellotoCheater()">Читерша 😎</button>
