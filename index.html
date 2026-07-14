@@ -4,67 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Расслабимся?</title>
-    <style>
-        body {
-            font-family: 'Comic Sans MS', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #966c6c, #23799b);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .card {
-            display: flex;
-            flex-direction: column;
-            background: rgb(228, 214, 214);
-            padding: 30px;
-            border-radius: 30px;
-            box-shadow: 0 10px 25px rgba(119, 59, 59, 0.1);
-            text-align: center;
-            width: 340px;
-            height: 300px;
-            justify-content: center;
-        }
-        h2 { color: #ff4d97; margin:0 0 15px; }
-        p { color: #0785c0; font-size: 18px; line-height: 1.5;margin: 0 0 15px; }
+    <link rel="stylesheet" href="style.css">
 
-        .btn{
-            display: flex;
-            flex-direction: column;
-            align-self: center;
-            gap: 5px;
-            width: 60%;
-        }
-        button {
-            background-color: #5e8797;
-            color: rgb(231, 197, 0);
-            border: none;
-            padding: 12px 20px;
-            font-size: 16px;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: transform 0.2s, background-color 0.2s;
-        }
-        button:hover { background-color: #ff758f; transform: scale(1.03); }
-      
-        
-        .fade-in {
-    animation: fadeInAnimation 0.5s ease-in-out forwards;
-}
-
-
-@keyframes fadeInAnimation {
-    from {
-        opacity: 0;
-        transform: translateY(5px); 
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-    </style>
+   
 </head>
 <body>
 
@@ -73,85 +15,13 @@
     <p id="text">Найди себя😄</p>
     <div id="buttons" class="btn">
         <button onclick="sayHellotoKarina()">Karina 😂</button>
-              <button onclick="sayHellotoMalvina()">Mal'vina 🐷 </button>
-                <button onclick="sayHellotoCheater()">Читерша 😎 </button>
+        <button onclick="sayHellotoMalvina()">Mal'vina 🐷 </button>
+        <button onclick="sayHellotoCheater()">Читерша 😎 </button>
     </div>
 
 </div>
 
-<script>
-
-    const titleElement = document.getElementById('title');
-    const textElement = document.getElementById('text');   
-    const btnContainer = document.getElementById('buttons');
-    let cardElement = document.querySelector('.card')
-    let currentThought = ""
-    let currentBg = ""
-  
- 
-    
-        
-    function sayHellotoKarina() {
-
-    titleElement.innerText = "Рад, знакомству Карина"; 
-    textElement.innerHTML = "Вижу, теперь улыбаешься😁";
-    currentThought = "Если есть человек который движет тобой, то это не про тонкий лёд, а кристалл твердой породы"
-    currentBg = "#e3f2fd"
-    textElement.classList.add('fade-in') 
-    showThoughtButton()
-}
-
-    function sayHellotoMalvina() {
-
-    titleElement.innerText = "Рад, знакомству Мальвина"; 
-    textElement.innerHTML = "Тебе подошел бы Буратино😁"; 
-    currentThought = "Совместимость не определяется статистикой и цифрами,а определяется временем"
-    textElement.classList.add('fade-in')
-    showThoughtButton()
-    currentBg = "#ff18"
-
-}
-    function sayHellotoCheater() {
-
-    titleElement.innerText = "Надо на проверку👽"; 
-    textElement.innerHTML = "Мага, не квакай!!!🤢"; 
-    currentThought = "Иногда мы читерим, для того чтобы казаться хорошими, но ценность заложена в самом человеке"
-    textElement.classList.add('fade-in') 
-    showThoughtButton()
-    currentBg = "#3445"
-}
-
-    function showBackButton() { //back
-    btnContainer.innerHTML = `<button onclick="resetCard()">Назад ↩️</button>`;
-}
-    function showThought(){
-    textElement.classList.remove('fade-in');
-    void textElement.offsetWidth;
-    cardElement.style.background = currentBg
-    titleElement.innerText = "О главном.."
-    textElement.innerText = currentThought
-    textElement.classList.add('fade-in')  
-    btnContainer.innerHTML = `<button onclick="resetCard()">Назад ↩</button>`
-
-}
-
-    function showThoughtButton() {
-        btnContainer.innerHTML = `<button onclick="showThought()">Мысль дня 💎</button>`;
-    }
-    function resetCard() { //returnisback
-    cardElement.style.background = "rgb(228, 214, 214)";   
-    void textElement.offsetWidth 
-    textElement.classList.add('fade-in')
-
-    titleElement.innerText = "Мы вернулись чтобы делать вместе";
-    textElement.innerText = "Найди себя😄";
-    btnContainer.innerHTML = `
-            <button onclick="sayHellotoKarina()">Karina 😂</button>
-            <button onclick="sayHellotoMalvina()">Mal'vina 🐷</button>
-            <button onclick="sayHellotoCheater()">Читерша 😎</button>
-        `;
-    }
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
