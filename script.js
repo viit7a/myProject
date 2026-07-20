@@ -70,6 +70,6 @@
     btnContainer.innerHTML = `
             <button onclick="sayHellotoKarina()">Karina 😂</button>
             <button onclick="sayHellotoMalvina()">Mal'vina 🐷</button>
-            <button onclick="sayHellotoCheater()">Читерша 😎</button>
+            <button onclick="sayHellotoCheater()">Cheat-girl 😎</button>
         `;
     }
